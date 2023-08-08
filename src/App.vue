@@ -1,3 +1,7 @@
-<script setup></script>
+<script setup>
+import VNavigation from "./components/VNavigation.vue";
+</script>
 
-<template></template>
+<template>
+  <VNavigation />
+</template>
