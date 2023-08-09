@@ -3,8 +3,8 @@ import BaseContainer from "./BaseContainer.vue";
 </script>
 
 <template>
-  <section class="flex justify-center items-center flex-col p-8">
-    <h1 class="text-2xl font-bold p-7">Most popular Disney Characters</h1>
+  <section class="flex justify-center items-center flex-col mt-16">
+    <h1 class="text-3xl font-bold p-10">Most popular Disney Characters</h1>
     <div class="flex gap-8">
       <BaseContainer>
         <img />
