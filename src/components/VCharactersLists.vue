@@ -1,9 +1,12 @@
 <script setup>
-import VListsTile from "./VListsTile.vue";
+import VListsTile from "./Vliststile.vue";
 </script>
 
 <template>
-  <section>
+  <section class="my-36">
+    <h1 class="text-3xl font-bold p-5 flex justify-center">
+      What are your favorite characters?
+    </h1>
     <VListsTile title="Disney Characters" />
     <VListsTile title="My Favorites" />
   </section>
