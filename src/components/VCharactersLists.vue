@@ -1,5 +1,5 @@
 <script setup>
-import VListsTile from "./Vliststile.vue";
+import VListsTile from "./VListsTile.vue";
 </script>
 
 <template>
