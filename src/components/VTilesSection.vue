@@ -10,11 +10,18 @@ const props = defineProps({
 
 const characters = ref([]);
 
-axios
-  .get("https://api.disneyapi.dev/character?pageSize=100")
-  .then((response) => {
+const fetchCharacterData = async () => {
+  try {
+    const response = await axios.get(
+      "https://api.disneyapi.dev/character?pageSize=100"
+    );
     characters.value = response.data;
-  });
+  } catch (error) {
+    error.value = error;
+  }
+};
+
+fetchCharacterData();
 </script>
 
 <template>
@@ -31,6 +38,7 @@ axios
       <span>Favorites</span>
     </div>
     <div
+      else-if
       class="flex justify-between items-center mr-7"
       v-for="character in characters.data"
       :key="character.id"
