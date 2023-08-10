@@ -1,5 +1,5 @@
 <script setup>
-import VListsTile from "./VListsTile.vue";
+import VTilesSection from "./VTilesSection.vue";
 import { Icon } from "@iconify/vue";
 </script>
 
@@ -8,7 +8,7 @@ import { Icon } from "@iconify/vue";
     <h1 class="text-3xl font-bold p-5 flex justify-center">
       What are your favorite characters?
     </h1>
-    <VListsTile title="Disney Characters" />
+    <VTilesSection title="Disney Characters" />
     <div class="flex items-center justify-center flex-col gap-4">
       <Icon icon="mingcute:user-search-line" color="gray" width="40" />
       <h2 class="text-gray-500 text-lg">Look through your favorites:</h2>
@@ -18,6 +18,6 @@ import { Icon } from "@iconify/vue";
         type="text"
       />
     </div>
-    <VListsTile title="My Favorites" />
+    <VTilesSection title="My Favorites" />
   </section>
 </template>
