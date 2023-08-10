@@ -1,10 +1,20 @@
 <script setup>
 import { Icon } from "@iconify/vue";
 import { defineProps } from "vue";
+import { ref } from "vue";
+import axios from "axios";
 
 const props = defineProps({
   title: String,
 });
+
+const characters = ref([]);
+
+axios
+  .get("https://api.disneyapi.dev/character?pageSize=100")
+  .then((response) => {
+    characters.value = response.data;
+  });
 </script>
 
 <template>
