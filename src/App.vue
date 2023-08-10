@@ -1,13 +1,13 @@
 <script setup>
-import VCharactersLists from "./components/VCharactersLists.vue";
-import VNavigation from "./components/VNavigation.vue";
+import VLists from "./components/VLists.vue";
+import TheNavigation from "./components/TheNavigation.vue";
 import VPopularCharacters from "./components/VPopularCharacters.vue";
-import VPageFooter from "./components/VPageFooter.vue";
+import TheFooter from "./components/TheFooter.vue";
 </script>
 
 <template>
-  <VNavigation />
+  <TheNavigation />
   <VPopularCharacters />
-  <VCharactersLists />
-  <VPageFooter />
+  <VLists />
+  <TheFooter />
 </template>
