@@ -1,9 +1,17 @@
 <script setup>
 import { Icon } from "@iconify/vue";
 import { useCharacterStore } from "@/stores/character.js";
+import { ref, computed } from "vue";
 
 const characterStore = useCharacterStore();
 const search = ref("");
+const searchLowerCase = computed(() => search.value.toLowerCase());
+
+const filteredCharacters = computed(() =>
+  characterStore.favoriteCharacters.filter(({ name }) =>
+    name.toLowerCase().includes(searchLowerCase.value)
+  )
+);
 </script>
 
 <template>
@@ -15,9 +23,11 @@ const search = ref("");
         class="p-2 w-96 border border-gray-200 rounded mb-6"
         placeholder="Search character..."
         type="text"
+        v-model="search"
       />
       <h1 class="font-bold text-2xl">My favorites characters</h1>
       <div class="h-80 font-bold gap-16 flex border p-6 shadow-md mb-40">
+        {{ filteredCharacters }}
         <span>Picture</span>
         <span>Character name</span>
         <span>Tv shows</span>
