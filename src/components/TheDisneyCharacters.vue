@@ -5,7 +5,7 @@ import axios from "axios";
 
 const characters = ref([]);
 
-const fetchCharacterData = async () => {
+const loadCharacterData = async () => {
   try {
     const response = await axios.get(
       "https://api.disneyapi.dev/character?pageSize=100"
@@ -16,7 +16,7 @@ const fetchCharacterData = async () => {
   }
 };
 
-fetchCharacterData();
+loadCharacterData();
 </script>
 
 <template>
@@ -37,18 +37,13 @@ fetchCharacterData();
         <span>Add to favorites</span>
       </div>
       <div
-        else-if
         class="flex justify-between items-center mr-20"
-        v-for="character in characters.data"
-        :key="character.id"
+        v-for="{ _id, imageUrl, tvShows, name } in characters.data"
+        :key="_id"
       >
-        <img :src="character.imageUrl" alt="Disney characters" class="w-16" />
-        <span class="w-20">{{ character.name }}</span>
-        <Icon
-          icon="ph:television-light"
-          width="24"
-          v-if="character.tvShows.length > 0"
-        />
+        <img :src="imageUrl" alt="Disney characters" class="w-16" />
+        <span class="w-20">{{ name }}</span>
+        <Icon icon="ph:television-light" width="24" v-if="tvShows.length > 0" />
         <Icon icon="system-uicons:cross" v-else width="24" />
         <Icon icon="guidance:star" color="gray" width="24" height="24" />
       </div>
