@@ -31,7 +31,13 @@ const characterStore = useCharacterStore();
         <span class="w-20">{{ name }}</span>
         <Icon icon="ph:television-light" width="24" v-if="tvShows.length > 0" />
         <Icon icon="system-uicons:cross" v-else width="24" />
-        <Icon icon="guidance:star" color="gray" width="24" height="24" />
+        <Icon
+          icon="guidance:star"
+          color="gray"
+          width="24"
+          height="24"
+          @click="characterStore.toggleFavoriteCharacterById(_id)"
+        />
       </div>
     </div>
   </section>
