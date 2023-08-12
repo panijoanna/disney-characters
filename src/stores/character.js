@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import axios from "axios";
 
 export const useCharacterStore = defineStore("character", () => {
@@ -14,6 +14,10 @@ export const useCharacterStore = defineStore("character", () => {
     }
   };
 
+  const favoriteCharacters = computed(() =>
+    characters.value.filter(({ _id }) => favoriteCharacterIds.value.has(_id))
+  );
+
   const loadCharacterData = async () => {
     const response = await axios.get(
       "https://api.disneyapi.dev/character?pageSize=100"
@@ -27,5 +31,6 @@ export const useCharacterStore = defineStore("character", () => {
     characters,
     toggleFavoriteCharacterById,
     favoriteCharacterIds,
+    favoriteCharacters,
   };
 });
