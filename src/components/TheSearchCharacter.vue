@@ -1,5 +1,8 @@
 <script setup>
 import { Icon } from "@iconify/vue";
+import { useCharacterStore } from "@/stores/character.js";
+
+const characterStore = useCharacterStore();
 </script>
 
 <template>
