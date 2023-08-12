@@ -1,22 +1,8 @@
 <script setup>
 import { Icon } from "@iconify/vue";
-import { ref } from "vue";
-import axios from "axios";
+import { useCharacterStore } from "@/stores/character.js";
 
-const characters = ref([]);
-
-const loadCharacterData = async () => {
-  try {
-    const response = await axios.get(
-      "https://api.disneyapi.dev/character?pageSize=100"
-    );
-    characters.value = response.data;
-  } catch (error) {
-    error.value = error;
-  }
-};
-
-loadCharacterData();
+const characterStore = useCharacterStore();
 </script>
 
 <template>
@@ -38,14 +24,20 @@ loadCharacterData();
       </div>
       <div
         class="flex justify-between items-center mr-20"
-        v-for="{ _id, imageUrl, tvShows, name } in characters.data"
+        v-for="{ _id, imageUrl, tvShows, name } in characterStore.characters"
         :key="_id"
       >
         <img :src="imageUrl" alt="Disney characters" class="w-16" />
         <span class="w-20">{{ name }}</span>
         <Icon icon="ph:television-light" width="24" v-if="tvShows.length > 0" />
         <Icon icon="system-uicons:cross" v-else width="24" />
-        <Icon icon="guidance:star" color="gray" width="24" height="24" />
+        <Icon
+          icon="guidance:star"
+          color="gray"
+          width="24"
+          height="24"
+          @click="characterStore.toggleFavoriteCharacterById(_id)"
+        />
       </div>
     </div>
   </section>
