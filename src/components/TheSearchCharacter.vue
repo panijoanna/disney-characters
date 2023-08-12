@@ -26,12 +26,24 @@ const filteredCharacters = computed(() =>
         v-model="search"
       />
       <h1 class="font-bold text-2xl">My favorites characters</h1>
-      <div class="h-80 font-bold gap-16 flex border p-6 shadow-md mb-40">
-        {{ filteredCharacters }}
-        <span>Picture</span>
-        <span>Character name</span>
-        <span>Tv shows</span>
-        <span>Add to favorites</span>
+      <div
+        class="font-bold h-96 gap-6 flex flex-col border overflow-y-scroll rounded-md shadow-md mb-40 bg-mystic"
+      >
+        <div
+          class="flex gap-36 items-center border-b border-gray-400 p-8"
+          v-for="{ _id, imageUrl, tvShows, name } in filteredCharacters"
+          :key="_id"
+        >
+          <img :src="imageUrl" alt="Disney characters" class="w-12" />
+          <span class="text-sm text-gray-500 w-12">{{ name }}</span>
+          <Icon icon="ph:television-light" v-if="tvShows.length > 0" />
+          <Icon icon="system-uicons:cross" v-else />
+          <Icon
+            icon="guidance:star"
+            color="gray"
+            @click="characterStore.toggleFavoriteCharacterById(_id)"
+          />
+        </div>
       </div>
     </div>
   </section>
