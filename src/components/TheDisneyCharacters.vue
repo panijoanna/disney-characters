@@ -32,12 +32,15 @@ const characterStore = useCharacterStore();
         <Icon icon="ph:television-light" width="24" v-if="tvShows.length > 0" />
         <Icon icon="system-uicons:cross" v-else width="24" />
         <Icon
+          class="cursor-pointer"
           icon="guidance:star"
           color="gray"
           width="24"
           height="24"
           @click="characterStore.toggleFavoriteCharacterById(_id)"
+          v-if="!characterStore.favoriteCharacterIds.has(_id)"
         />
+        <Icon icon="fxemoji:star" width="24" v-else />
       </div>
     </div>
   </section>
