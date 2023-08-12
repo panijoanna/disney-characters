@@ -5,7 +5,7 @@ import axios from "axios";
 
 const characters = ref([]);
 
-const fetchCharacterData = async () => {
+const loadCharacterData = async () => {
   try {
     const response = await axios.get(
       "https://api.disneyapi.dev/character?pageSize=100"
@@ -16,7 +16,7 @@ const fetchCharacterData = async () => {
   }
 };
 
-fetchCharacterData();
+loadCharacterData();
 </script>
 
 <template>
