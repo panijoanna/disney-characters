@@ -39,7 +39,8 @@ const filteredCharacters = computed(() =>
           <Icon icon="ph:television-light" v-if="tvShows.length > 0" />
           <Icon icon="system-uicons:cross" v-else />
           <Icon
-            icon="guidance:star"
+            class="cursor-pointer"
+            icon="fxemoji:star"
             color="gray"
             @click="characterStore.toggleFavoriteCharacterById(_id)"
           />
