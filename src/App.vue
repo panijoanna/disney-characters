@@ -1,15 +1,15 @@
 <script setup>
 import TheNavigation from "./components/TheNavigation.vue";
 import TheFooter from "./components/TheFooter.vue";
-import VDisneyCharacters from "./components/VDisneyCharacters.vue";
-import VPopularCharacters from "./components/VPopularcharacters.vue";
-import VSearchCharacter from "./components/VSearchCharacter.vue";
+import ThePopularCharacters from "./components/ThePopularCharacters.vue";
+import TheDisneyCharacters from "./components/TheDisneyCharacters.vue";
+import TheSearchCharacter from "./components/TheSearchCharacter.vue";
 </script>
 
 <template>
   <TheNavigation />
-  <VPopularCharacters />
-  <VDisneyCharacters />
-  <VSearchCharacter />
+  <ThePopularCharacters />
+  <TheDisneyCharacters />
+  <TheSearchCharacter />
   <TheFooter />
 </template>
