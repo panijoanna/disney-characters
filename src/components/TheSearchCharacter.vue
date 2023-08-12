@@ -3,6 +3,7 @@ import { Icon } from "@iconify/vue";
 import { useCharacterStore } from "@/stores/character.js";
 
 const characterStore = useCharacterStore();
+const search = ref("");
 </script>
 
 <template>
