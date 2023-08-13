@@ -33,9 +33,14 @@ const filteredCharacters = computed(() =>
           class="flex gap-36 items-center border-b border-gray-400 p-8"
           v-for="{ _id, imageUrl, tvShows, name } in filteredCharacters"
           :key="_id"
+          :data-test="`favorite-character-${_id}`"
         >
           <img :src="imageUrl" alt="Disney characters" class="w-12" />
-          <span class="text-sm text-gray-500 w-12">{{ name }}</span>
+          <span
+            class="text-gray-500 text-sm w-12"
+            data-test="favorite-character-name"
+            >{{ name }}</span
+          >
           <Icon icon="ph:television-light" v-if="tvShows.length > 0" />
           <Icon icon="system-uicons:cross" v-else />
           <Icon
