@@ -1,10 +1,10 @@
 import { it, describe, expect } from "vitest";
-import { retrieveMostPopularCharacters } from "./character";
+import { retrieveCharacters } from "./character";
 
-describe("retrieveMostPopularCharacters", () => {
-  it("returns most popular characters", () => {
+describe("retrieve characters", () => {
+  it("returns characters", () => {
     expect(
-      retrieveMostPopularCharacters([
+      retrieveCharacters([
         {
           _id: 112,
           films: ["Hercules (film)"],
