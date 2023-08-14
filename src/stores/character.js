@@ -30,7 +30,9 @@ export const useCharacterStore = defineStore("character", () => {
     const response = await axios.get(
       "https://api.disneyapi.dev/character?pageSize=100"
     );
-    characters.value = response.data.data;
+    characters.value = response.data.data.filter(
+      (character) => character.films.length > 0
+    );
     sortPopularCharacters();
   };
 
