@@ -1,6 +1,7 @@
 <script setup>
 import { Icon } from "@iconify/vue";
 import { useCharacterStore } from "@/stores/character.js";
+import Popper from "vue3-popper";
 
 const characterStore = useCharacterStore();
 </script>
@@ -29,8 +30,14 @@ const characterStore = useCharacterStore();
       >
         <img :src="imageUrl" alt="Disney characters" class="w-16" />
         <span class="w-20">{{ name }}</span>
-        <Icon icon="ph:television-light" width="24" v-if="tvShows.length > 0" />
-        <Icon icon="system-uicons:cross" v-else width="24" />
+        <Popper hover arrow placement="top" :content="tvShows.join('\r\n')">
+          <Icon
+            icon="ph:television-light"
+            width="24"
+            v-if="tvShows.length > 0"
+          />
+          <Icon icon="system-uicons:cross" v-else width="24" />
+        </Popper>
         <Icon
           class="cursor-pointer"
           icon="guidance:star"
@@ -40,8 +47,37 @@ const characterStore = useCharacterStore();
           @click="characterStore.toggleFavoriteCharacterById(_id)"
           v-if="!characterStore.favoriteCharacterIds.has(_id)"
         />
-        <Icon icon="fxemoji:star" width="24" v-else />
+        <Icon
+          class="cursor-pointer"
+          icon="fxemoji:star"
+          width="24"
+          @click="characterStore.toggleFavoriteCharacterById(_id)"
+          v-else
+        />
       </div>
     </div>
   </section>
 </template>
+
+<style scoped>
+:deep(.popper[data-v-5784ed69]) {
+  background: #000;
+  white-space: pre;
+  opacity: 0.8;
+  max-width: 160px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+:deep(.popper[data-v-5784ed69] #arrow::before) {
+  background: #000;
+}
+
+:deep(.popper[data-v-5784ed69]:hover),
+:deep(.popper[data-v-5784ed69]:hover > #arrow::before) {
+  background: #000;
+}
+</style>
