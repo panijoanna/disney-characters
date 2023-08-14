@@ -2,6 +2,7 @@
 import { Icon } from "@iconify/vue";
 import { useCharacterStore } from "@/stores/character.js";
 import { ref, computed } from "vue";
+import BaseCharacterList from "./BaseCharacterList.vue";
 
 const characterStore = useCharacterStore();
 const search = ref("");
@@ -26,31 +27,7 @@ const filteredCharacters = computed(() =>
         v-model="search"
       />
       <h1 class="font-bold text-2xl">My favorites characters</h1>
-      <div
-        class="font-bold h-96 gap-6 flex flex-col border overflow-y-scroll rounded-md shadow-md mb-40 bg-mystic"
-      >
-        <div
-          class="flex gap-36 items-center border-b border-gray-400 p-8"
-          v-for="{ _id, imageUrl, tvShows, name } in filteredCharacters"
-          :key="_id"
-          :data-test="`favorite-character-${_id}`"
-        >
-          <img :src="imageUrl" alt="Disney characters" class="w-12" />
-          <span
-            class="text-gray-500 text-sm w-12"
-            data-test="favorite-character-name"
-            >{{ name }}</span
-          >
-          <Icon icon="ph:television-light" v-if="tvShows.length > 0" />
-          <Icon icon="system-uicons:cross" v-else />
-          <Icon
-            class="cursor-pointer"
-            icon="fxemoji:star"
-            color="gray"
-            @click="characterStore.toggleFavoriteCharacterById(_id)"
-          />
-        </div>
-      </div>
+      <BaseCharacterList :list="filteredCharacters" title="Favorites" />
     </div>
   </section>
 </template>
