@@ -6,8 +6,10 @@ const characterStore = useCharacterStore();
 
 <template>
   <section class="flex justify-center items-center flex-col mt-6">
-    <h1 class="text-3xl font-bold p-10">Most popular Disney Characters</h1>
-    <div class="flex gap-8">
+    <h1 class="text-3xl font-bold p-10 max-md:text-lg">
+      Most popular Disney Characters
+    </h1>
+    <div class="flex gap-5 max-md:flex-col max-md:gap-5 max-xl:gap-6">
       <div
         v-for="{
           imageUrl,
@@ -17,7 +19,7 @@ const characterStore = useCharacterStore();
         } in characterStore.mostPopularCharacters"
       >
         <div
-          class="bg-white shadow-md w-72 flex flex-col text-lg p-3 rounded hover:scale-105 transition-transform duration-500"
+          class="bg-white shadow-md w-72 flex flex-col text-lg p-3 rounded hover:scale-105 transition-transform duration-500 max-xl:w-56"
         >
           <img :src="imageUrl" class="rounded mb-5" />
           <span class="font-bold">{{ name }}</span>
