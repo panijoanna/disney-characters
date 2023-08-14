@@ -29,9 +29,10 @@ const characterStore = useCharacterStore();
       class="flex justify-between items-center mr-20 max-md:text-sm max-md:p-2 max-md:mr-9 max-lg:m-1 max-sm:gap-4"
       v-for="{ _id, imageUrl, tvShows, name } in list"
       :key="_id"
+      :data-test="`favorite-character-${_id}`"
     >
       <img :src="imageUrl" alt="Disney characters" class="w-16" />
-      <span class="w-20">{{ name }}</span>
+      <span class="w-20" data-test="favorite-character-name">{{ name }}</span>
       <Popper hover arrow placement="top" :content="tvShows.join('\r\n')">
         <Icon icon="ph:television-light" width="24" v-if="tvShows.length > 0" />
         <Icon icon="system-uicons:cross" v-else width="24" />

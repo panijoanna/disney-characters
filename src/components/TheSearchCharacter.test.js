@@ -4,6 +4,7 @@ import TheSearchCharacter from "./TheSearchCharacter.vue";
 import { setActivePinia } from "pinia";
 import { createTestingPinia } from "@pinia/testing";
 import { useCharacterStore } from "@/stores/character.js";
+import "regenerator-runtime/runtime";
 
 describe("Favorite character list", () => {
   beforeEach(() => {
