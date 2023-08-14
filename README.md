@@ -1,6 +1,15 @@
-# disney-characters
+## 📁 Disney Characters
 
-This template should help get you started developing with Vue 3 in Vite.
+### Demo
+https://fluffy-gnome-092df5.netlify.app/
+
+### Used technologies & features:
+`
+Vue3 | Vite | Vitest | Pinia |Tailwind
+`
+
+### Description
+Disney Characters is a fan website where you can select your favorite characters and add them to a list. Just click on the star.
 
 ## Recommended IDE Setup
 
