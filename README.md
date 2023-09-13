@@ -3,11 +3,12 @@
 ### Demo
 https://fluffy-gnome-092df5.netlify.app/
 
+⚠️ Sometimes the application errors are caused by Disney API instability and due to the fact of Disney API being down. You can check the health metrics of Disney API here: https://status.disneyapi.dev/
+
 ### Used technologies & features:
 `
 Vue3 | Vite | Vitest | Pinia |Tailwind
 `
-
 ### Description
 Disney Characters is a fan website where you can select your favorite characters and add them to a list. Just click on the star.
 
