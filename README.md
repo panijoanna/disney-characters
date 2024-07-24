@@ -4,7 +4,7 @@
 
 ⚠️ Sometimes the application errors are caused by Disney API instability and due to the fact of Disney API being down. You can check the health metrics of Disney API here: https://status.disneyapi.dev/
 
-#### Tech stack:
+#### Technologies:
 ```
 HTML5 & CSS3
 Vue3 & Pinia
