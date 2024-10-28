@@ -1,5 +1,8 @@
 ## 📁 Disney Characters
 
+#### Description
+Disney Characters is a fan website where you can select your favorite characters and add them to a list. Just click on the star.
+
 🔗 https://fluffy-gnome-092df5.netlify.app/
 
 #### Important ⚠️ 
@@ -12,9 +15,6 @@ Vue3 & Pinia
 Vite & Vitest
 TailwindCSS
 ```
-
-#### Description
-Disney Characters is a fan website where you can select your favorite characters and add them to a list. Just click on the star.
 
 #### Recommended IDE Setup
 
